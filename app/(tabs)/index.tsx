@@ -1,8 +1,7 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber/native";
-import { GLView } from "expo-gl";
 import { Suspense } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 import { createContext } from "react";
 
 const Context = createContext(null);
@@ -29,28 +28,17 @@ function Scene() {
 }
 
 export default function ShapesScreen() {
+  const { width, height } = Dimensions.get("window");
+
   return (
     <View style={{ flex: 1 }}>
-      <GLView
-        style={{ flex: 1 }}
-        onContextCreate={(gl) => {
-          const context = {
-            gl,
-            pixelRatio: 1,
-            viewport: { width: 0, height: 0 },
-            camera: { position: [0, 0, 5] },
-          };
-          return context;
-        }}
-      >
-        <Context.Provider value={null}>
-          <Canvas>
-            <Suspense fallback={null}>
-              <Scene />
-            </Suspense>
-          </Canvas>
-        </Context.Provider>
-      </GLView>
+      <Context.Provider value={null}>
+        <Canvas shadows>
+          <Suspense fallback={null}>
+            <Scene />
+          </Suspense>
+        </Canvas>
+      </Context.Provider>
     </View>
   );
 }

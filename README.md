@@ -18,6 +18,49 @@ The project showcases four fundamental concepts of 3D graphics through interacti
 - Three.js
 - TypeScript
 
+## Important Note: Expo SDK 52 Compatibility
+
+This project requires a patch for Three.js to work properly with Expo SDK 52. The patch fixes a WebGL shader error checking issue that can cause crashes on Android.
+
+To apply the patch:
+
+1. Create a `patches` directory in your project root
+2. Create a file named `three+0.175.0.patch` with the following content:
+
+```diff
+diff --git a/node_modules/three/build/three.cjs b/node_modules/three/build/three.cjs
+index 03bd422..6695740 100644
+--- a/node_modules/three/build/three.cjs
++++ b/node_modules/three/build/three.cjs
+@@ -63829,7 +63829,7 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
+ 	function onFirstUse( self ) {
+
+ 		// check for link errors
+-		if ( renderer.debug.checkShaderErrors ) {
++		if ( renderer.debug.checkShaderErrors && program ) {
+
+ 			const programLog = gl.getProgramInfoLog( program ).trim();
+ 			const vertexLog = gl.getShaderInfoLog( glVertexShader ).trim();
+```
+
+3. Add the following to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "postinstall": "patch-package"
+  }
+}
+```
+
+4. Install patch-package:
+
+```bash
+npm install --save-dev patch-package
+```
+
+5. Run `npm install` to apply the patch
+
 ## Getting Started
 
 1. Clone the repository

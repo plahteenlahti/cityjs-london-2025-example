@@ -1,0 +1,17 @@
+diff --git a/node_modules/three/build/.three.cjs.swp b/node_modules/three/build/.three.cjs.swp
+new file mode 100644
+index 0000000..d1bc018
+Binary files /dev/null and b/node_modules/three/build/.three.cjs.swp differ
+diff --git a/node_modules/three/build/three.cjs b/node_modules/three/build/three.cjs
+index 03bd422..6695740 100644
+--- a/node_modules/three/build/three.cjs
++++ b/node_modules/three/build/three.cjs
+@@ -63829,7 +63829,7 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
+ 	function onFirstUse( self ) {
+ 
+ 		// check for link errors
+-		if ( renderer.debug.checkShaderErrors ) {
++		if ( renderer.debug.checkShaderErrors && program ) {
+ 
+ 			const programLog = gl.getProgramInfoLog( program ).trim();
+ 			const vertexLog = gl.getShaderInfoLog( glVertexShader ).trim();

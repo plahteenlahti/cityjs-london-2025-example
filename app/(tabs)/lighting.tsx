@@ -1,10 +1,6 @@
 import { Canvas } from "@react-three/fiber/native";
-import { View } from "react-native";
-import { GLView } from "expo-gl";
 import { Suspense } from "react";
-import { createContext } from "react";
-
-const Context = createContext(null);
+import { View } from "react-native";
 
 function Scene() {
   return (
@@ -44,26 +40,11 @@ function Scene() {
 export default function LightingScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <GLView
-        style={{ flex: 1 }}
-        onContextCreate={(gl) => {
-          const context = {
-            gl,
-            pixelRatio: 1,
-            viewport: { width: 0, height: 0 },
-            camera: { position: [0, 0, 5] },
-          };
-          return context;
-        }}
-      >
-        <Context.Provider value={null}>
-          <Canvas>
-            <Suspense fallback={null}>
-              <Scene />
-            </Suspense>
-          </Canvas>
-        </Context.Provider>
-      </GLView>
+      <Canvas shadows>
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
     </View>
   );
 }

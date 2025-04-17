@@ -1,11 +1,8 @@
+import React from "react";
 import { Canvas, useFrame } from "@react-three/fiber/native";
-import { View } from "react-native";
-import { GLView } from "expo-gl";
-import React, { Suspense, useRef } from "react";
+import { Suspense, useRef } from "react";
+import { StyleSheet, View } from "react-native";
 import { Mesh } from "three";
-import { createContext } from "react";
-
-const Context = createContext(null);
 
 function RotatingBox() {
   const meshRef = useRef<Mesh>(null);
@@ -55,7 +52,7 @@ function ScalingCylinder() {
   return (
     <mesh ref={meshRef} position={[2, 0, 0]}>
       <cylinderGeometry args={[0.5, 0.5, 1.5, 32]} />
-      <meshStandardMaterial color="lightgreen" />
+      <meshStandardMaterial color="yellow" />
     </mesh>
   );
 }
@@ -75,26 +72,11 @@ function Scene() {
 export default function AnimationScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <GLView
-        style={{ flex: 1 }}
-        onContextCreate={(gl) => {
-          const context = {
-            gl,
-            pixelRatio: 1,
-            viewport: { width: 0, height: 0 },
-            camera: { position: [0, 0, 5] },
-          };
-          return context;
-        }}
-      >
-        <Context.Provider value={null}>
-          <Canvas>
-            <Suspense fallback={null}>
-              <Scene />
-            </Suspense>
-          </Canvas>
-        </Context.Provider>
-      </GLView>
+      <Canvas shadows>
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
     </View>
   );
 }
