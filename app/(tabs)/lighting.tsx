@@ -40,7 +40,11 @@ function Scene() {
 export default function LightingScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <Canvas shadows>
+      <Canvas
+        shadows
+        // @ts-expect-error events is not typed to handle null but null is the only way to get the canvas to render on iOS with the new architecture
+        events={null}
+      >
         <Suspense fallback={null}>
           <Scene />
         </Suspense>

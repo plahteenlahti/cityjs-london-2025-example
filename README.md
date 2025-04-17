@@ -4,18 +4,21 @@ This project is a companion demo for the CityJS London 2025 talk "3D Graphics in
 
 ## Overview
 
-The project showcases four fundamental concepts of 3D graphics through interactive examples:
+The project showcases five fundamental concepts of 3D graphics through interactive examples:
 
-1. **Basic Shapes** - Demonstrates primitive 3D objects (box, sphere, cylinder) and their properties
-2. **Lighting** - Shows different types of lights (ambient, point, spot, directional) and their effects
-3. **Animation** - Features various animation techniques (rotation, bouncing, scaling)
-4. **Interaction** - Implements user interaction with 3D objects (hover, click, drag)
+1. **Three.js Basics** - Demonstrates direct Three.js usage with Expo GL and Expo Three
+2. **Basic Shapes** - Demonstrates primitive 3D objects (box, sphere, cylinder) and their properties
+3. **Lighting** - Shows different types of lights (ambient, point, spot, directional) and their effects
+4. **Animation** - Features various animation techniques (rotation, bouncing, scaling)
+5. **Interaction** - Implements user interaction with 3D objects (hover, click, drag)
 
 ## Technical Stack
 
 - React Native / Expo
 - React Three Fiber
 - Three.js
+- Expo GL
+- Expo Three
 - TypeScript
 
 ## Important Note: Expo SDK 52 Compatibility
@@ -75,14 +78,22 @@ npm install --save-dev patch-package
 
 ## Project Structure
 
-The project is organized into four main screens, each demonstrating a different aspect of 3D graphics:
+The project is organized into five main screens, each demonstrating a different aspect of 3D graphics:
 
+- `app/(tabs)/three.tsx` - Basic Three.js implementation with Expo GL
 - `app/(tabs)/index.tsx` - Basic shapes demo
 - `app/(tabs)/lighting.tsx` - Lighting effects demo
 - `app/(tabs)/animation.tsx` - Animation techniques demo
 - `app/(tabs)/interaction.tsx` - User interaction demo
 
 ## Features
+
+### Three.js Basics
+
+- Direct WebGL context management with Expo GL
+- Basic scene setup with camera and renderer
+- Simple animation loop
+- Manual resource cleanup
 
 ### Basic Shapes
 

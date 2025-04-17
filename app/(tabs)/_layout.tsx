@@ -27,6 +27,15 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
+        name="three"
+        options={{
+          title: "Three",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="numbers.rectangle" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: "Shapes",

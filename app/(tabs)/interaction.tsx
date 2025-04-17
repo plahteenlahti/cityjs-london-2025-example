@@ -77,7 +77,11 @@ function Scene() {
 export default function InteractionScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <Canvas shadows>
+      <Canvas
+        // @ts-expect-error events is not typed to handle null but null is the only way to get the canvas to render on iOS with the new architecture
+        events={null}
+        shadows
+      >
         <Suspense fallback={null}>
           <Scene />
         </Suspense>

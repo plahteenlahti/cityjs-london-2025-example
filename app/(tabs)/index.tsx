@@ -1,17 +1,13 @@
-import React from "react";
 import { Canvas } from "@react-three/fiber/native";
 import { Suspense } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
-import { createContext } from "react";
-
-const Context = createContext(null);
+import { View } from "react-native";
 
 function Scene() {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <mesh position={[-2, 0, 0]}>
+      <directionalLight position={[10, 20, 5]} intensity={1} />
+      <mesh position={[-1.5, 0, 0]}>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color="hotpink" />
       </mesh>
@@ -19,7 +15,7 @@ function Scene() {
         <sphereGeometry args={[0.7, 32, 32]} />
         <meshStandardMaterial color="lightblue" />
       </mesh>
-      <mesh position={[2, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+      <mesh position={[1.5, 0, 0]} rotation={[0, 1.5, Math.PI / 3]}>
         <cylinderGeometry args={[0.5, 0.5, 1.5, 32]} />
         <meshStandardMaterial color="lightgreen" />
       </mesh>
@@ -28,36 +24,17 @@ function Scene() {
 }
 
 export default function ShapesScreen() {
-  const { width, height } = Dimensions.get("window");
-
   return (
     <View style={{ flex: 1 }}>
-      <Context.Provider value={null}>
-        <Canvas shadows>
-          <Suspense fallback={null}>
-            <Scene />
-          </Suspense>
-        </Canvas>
-      </Context.Provider>
+      <Canvas
+        style={{ flex: 1, borderWidth: 1, borderColor: "red" }}
+        // @ts-expect-error events is not typed to handle null but null is the only way to get the canvas to render on iOS with the new architecture
+        events={null}
+      >
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});

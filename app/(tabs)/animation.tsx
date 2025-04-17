@@ -52,7 +52,7 @@ function ScalingCylinder() {
   return (
     <mesh ref={meshRef} position={[2, 0, 0]}>
       <cylinderGeometry args={[0.5, 0.5, 1.5, 32]} />
-      <meshStandardMaterial color="yellow" />
+      <meshStandardMaterial color="red" />
     </mesh>
   );
 }
@@ -72,7 +72,11 @@ function Scene() {
 export default function AnimationScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <Canvas shadows>
+      <Canvas
+        shadows
+        // @ts-expect-error events is not typed to handle null but null is the only way to get the canvas to render on iOS with the new architecture
+        events={null}
+      >
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
