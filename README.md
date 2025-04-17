@@ -1,50 +1,88 @@
-# Welcome to your Expo app 👋
+# 3D Graphics in React & React Native using React Three Fiber
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project is a companion demo for the CityJS London 2025 talk "3D Graphics in React & React Native using React Three Fiber". It demonstrates how to create interactive 3D graphics that work seamlessly across both web and native platforms using React Three Fiber.
 
-## Get started
+## Overview
 
-1. Install dependencies
+The project showcases four fundamental concepts of 3D graphics through interactive examples:
 
+1. **Basic Shapes** - Demonstrates primitive 3D objects (box, sphere, cylinder) and their properties
+2. **Lighting** - Shows different types of lights (ambient, point, spot, directional) and their effects
+3. **Animation** - Features various animation techniques (rotation, bouncing, scaling)
+4. **Interaction** - Implements user interaction with 3D objects (hover, click, drag)
+
+## Technical Stack
+
+- React Native / Expo
+- React Three Fiber
+- Three.js
+- TypeScript
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-2. Start the app
-
+3. Start the development server:
    ```bash
-    npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+## Project Structure
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+The project is organized into four main screens, each demonstrating a different aspect of 3D graphics:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `app/(tabs)/index.tsx` - Basic shapes demo
+- `app/(tabs)/lighting.tsx` - Lighting effects demo
+- `app/(tabs)/animation.tsx` - Animation techniques demo
+- `app/(tabs)/interaction.tsx` - User interaction demo
 
-## Get a fresh project
+## Features
 
-When you're ready, run:
+### Basic Shapes
 
-```bash
-npm run reset-project
-```
+- Box, sphere, and cylinder primitives
+- Different materials and colors
+- Basic transformations (position, rotation)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Lighting
 
-## Learn more
+- Ambient light for base illumination
+- Point light for localized lighting
+- Spot light for focused beams
+- Directional light for sun-like effects
+- Material properties (metalness, roughness)
 
-To learn more about developing your project with Expo, look at the following resources:
+### Animation
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Frame-based animations using `useFrame`
+- Different animation types:
+  - Continuous rotation
+  - Sine-wave based bouncing
+  - Pulsating scale changes
 
-## Join the community
+### Interaction
 
-Join our community of developers creating universal apps.
+- Hover effects with material changes
+- Click interactions with scaling
+- Drag-and-drop functionality
+- Real-time position updates
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Cross-Platform Considerations
+
+The project demonstrates how to:
+
+- Handle WebGL context differences between web and native
+- Implement touch interactions that work on both platforms
+- Manage performance considerations for mobile devices
+- Use responsive design for different screen sizes
+
+## License
+
+MIT
+
+## Author
+
+[Perttu Lähteenlahti](https://perttu.dev)
