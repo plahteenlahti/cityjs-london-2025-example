@@ -47,9 +47,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="lighting"
         options={{
-          title: "Lighting",
+          title: "Model",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="light.max" color={color} />
+            <IconSymbol size={28} name="cube.transparent" color={color} />
           ),
         }}
       />

@@ -15,6 +15,7 @@ const MAPPING = {
   "chevron.left.forwardslash.chevron.right": "code",
   "chevron.right": "chevron-right",
   "cube.fill": "square",
+  "cube.transparent": "model-training",
   "light.max": "lightbulb",
   "rotate.3d": "animation",
   "hand.tap": "waving-hand",
