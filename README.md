@@ -2,6 +2,12 @@
 
 This project is a companion demo for the CityJS London 2025 talk "3D Graphics in React & React Native using React Three Fiber". It demonstrates how to create interactive 3D graphics that work seamlessly across both web and native platforms using React Three Fiber.
 
+## Live Demo
+
+1. You can try the web demo at: [https://multiplatform3d--2y95cxozv1.expo.app/](https://multiplatform3d--2y95cxozv1.expo.app/)
+2. You can try the iOS demo at: [https://testflight.apple.com/join/PaJXJ8xz](https://testflight.apple.com/join/PaJXJ8xz)
+3. You can try the Android demo at: [https://play.google.com/store/apps/details?id=com.perttumainen.threedexample](https://play.google.com/store/apps/details?id=com.perttumainen.threedexample)
+
 ## Overview
 
 The project showcases five fundamental concepts of 3D graphics through interactive examples:
