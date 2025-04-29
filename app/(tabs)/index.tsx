@@ -27,8 +27,9 @@ export default function ShapesScreen() {
   return (
     <View style={{ flex: 1 }}>
       <Canvas
-        style={{ flex: 1, borderWidth: 1, borderColor: "red" }}
-        // @ts-expect-error events is not typed to handle null but null is the only way to get the canvas to render on iOS with the new architecture
+        style={{ flex: 1 }}
+        // @ts-expect-error events is not typed to handle null but
+        // null is the only way to get the canvas to render on iOS with the new architecture
         events={null}
       >
         <Suspense fallback={null}>
